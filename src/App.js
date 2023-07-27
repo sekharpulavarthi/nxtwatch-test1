@@ -16,7 +16,13 @@ import NotFound from './components/NotFound'
 import './App.css'
 
 class App extends Component {
-  state = {darkTheme: true, sidebarId: '', savedVideos: []}
+  state = {
+    darkTheme: true,
+    sidebarId: '',
+    savedVideos: [],
+    likedVideos: [],
+    dislikedVideos: [],
+  }
 
   toggleTheme = () => {
     this.setState(prevState => ({darkTheme: !prevState.darkTheme}))
@@ -24,6 +30,40 @@ class App extends Component {
 
   changeSidebarId = id => {
     this.setState({sidebarId: id})
+  }
+
+  addLikeVideos = video => {
+    const {likedVideos, dislikedVideos} = this.state
+    const videoPresent = likedVideos.find(each => each.id === video.id)
+
+    if (!videoPresent) {
+      this.setState(prevState => ({
+        likedVideos: [...prevState.likedVideos, video],
+      }))
+    } else {
+      const updatedVideos = likedVideos.filter(each => each.id !== video.id)
+      this.setState({likedVideos: updatedVideos})
+    }
+    const updatedDislikeVideos = dislikedVideos.filter(
+      each => each.id !== video.id,
+    )
+    this.setState({dislikedVideos: updatedDislikeVideos})
+  }
+
+  addDislikeVideos = video => {
+    const {dislikedVideos, likedVideos} = this.state
+    const videoPresent = dislikedVideos.find(each => each.id === video.id)
+
+    if (!videoPresent) {
+      this.setState(prevState => ({
+        dislikedVideos: [...prevState.dislikedVideos, video],
+      }))
+    } else {
+      const updatedVideos = dislikedVideos.filter(each => each.id !== video.id)
+      this.setState({dislikedVideos: updatedVideos})
+    }
+    const updatedLikeVideos = likedVideos.filter(each => each.id !== video.id)
+    this.setState({likedVideos: updatedLikeVideos})
   }
 
   addVideos = video => {
@@ -49,7 +89,13 @@ class App extends Component {
   }
 
   render() {
-    const {darkTheme, sidebarId, savedVideos} = this.state
+    const {
+      darkTheme,
+      sidebarId,
+      likedVideos,
+      dislikedVideos,
+      savedVideos,
+    } = this.state
     console.log(savedVideos)
 
     return (
@@ -58,10 +104,14 @@ class App extends Component {
           darkTheme,
           sidebarId,
           savedVideos,
+          likedVideos,
+          dislikedVideos,
           toggleTheme: this.toggleTheme,
           changeSidebarId: this.changeSidebarId,
           addVideos: this.addVideos,
           deleteVideos: this.deleteVideos,
+          addLikeVideos: this.addLikeVideos,
+          addDislikeVideos: this.addDislikeVideos,
         }}
       >
         <Switch>

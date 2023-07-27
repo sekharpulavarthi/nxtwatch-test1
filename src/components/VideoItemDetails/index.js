@@ -51,9 +51,6 @@ const apiStatusConstants = {
 class VideoItemDetails extends Component {
   state = {
     apiStatus: apiStatusConstants.initial,
-    like: false,
-    dislike: false,
-    save: false,
     videoDetails: {},
   }
 
@@ -102,25 +99,39 @@ class VideoItemDetails extends Component {
     }
   }
 
-  onClickLike = () => {
-    this.setState(prevState => ({like: !prevState.like}))
-  }
-
-  onClickDislike = () => {
-    this.setState(prevState => ({dislike: !prevState.dislike}))
-  }
-
   render() {
-    const {like, save, dislike, videoDetails, apiStatus} = this.state
+    const {videoDetails, apiStatus} = this.state
 
     return (
       <Context.Consumer>
         {value => {
-          const {darkTheme, addVideos, changeSidebarId} = value
+          const {
+            darkTheme,
+            addVideos,
+            savedVideos,
+            likedVideos,
+            dislikedVideos,
+            changeSidebarId,
+            addLikeVideos,
+            addDislikeVideos,
+          } = value
+
+          const isSaved = savedVideos.find(each => each.id === videoDetails.id)
+          const isLiked = likedVideos.find(each => each.id === videoDetails.id)
+          const isDisliked = dislikedVideos.find(
+            each => each.id === videoDetails.id,
+          )
 
           const onClickSave = () => {
-            this.setState(prevState => ({save: !prevState.save}))
             addVideos(videoDetails)
+          }
+
+          const onClickLiked = () => {
+            addLikeVideos(videoDetails)
+          }
+
+          const onClickDisliked = () => {
+            addDislikeVideos(videoDetails)
           }
 
           const renderFailureView = () => (
@@ -178,28 +189,28 @@ class VideoItemDetails extends Component {
                 </VideoText>
                 <LikeDislikeSaveBox>
                   <LikeDislikeSaveButton
-                    color={like ? '#2563eb' : '#64748b'}
+                    color={isLiked ? '#2563eb' : '#64748b'}
                     type="button"
-                    onClick={this.onClickLike}
+                    onClick={onClickLiked}
                   >
                     <AiOutlineLike size="26" />
                     Like
                   </LikeDislikeSaveButton>
                   <LikeDislikeSaveButton
-                    color={dislike ? '#2563eb' : '#64748b'}
+                    color={isDisliked ? '#2563eb' : '#64748b'}
                     type="button"
-                    onClick={this.onClickDislike}
+                    onClick={onClickDisliked}
                   >
                     <AiOutlineDislike size="26" />
                     Dislike
                   </LikeDislikeSaveButton>
                   <LikeDislikeSaveButton
-                    color={save ? '#2563eb' : '#64748b'}
+                    color={isSaved ? '#2563eb' : '#64748b'}
                     type="button"
                     onClick={onClickSave}
                   >
                     <AiOutlineAppstoreAdd size="26" />
-                    {save ? 'Saved' : 'Save'}
+                    {isSaved ? 'Saved' : 'Save'}
                   </LikeDislikeSaveButton>
                 </LikeDislikeSaveBox>
               </VideoInfoBox>
