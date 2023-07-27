@@ -52,23 +52,17 @@ const Navbar = props => (
             <Logo src={logo} alt="website logo" />
           </Link>
           <LogoutBox>
-            {darkTheme ? (
-              <ThemeButton
-                type="button"
-                onClick={onToggleTheme}
-                data-testid="theme"
-              >
+            <ThemeButton
+              type="button"
+              onClick={onToggleTheme}
+              data-testid="theme"
+            >
+              {darkTheme ? (
                 <FiSun size="28" color="#ffffff" />
-              </ThemeButton>
-            ) : (
-              <ThemeButton
-                type="button"
-                onClick={onToggleTheme}
-                data-testid="theme"
-              >
+              ) : (
                 <FaMoon size="28" color="#000000" />
-              </ThemeButton>
-            )}
+              )}
+            </ThemeButton>
             <Profile
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
               alt="profile"

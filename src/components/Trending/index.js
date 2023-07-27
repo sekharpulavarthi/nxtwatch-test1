@@ -81,8 +81,12 @@ class Trending extends Component {
         {value => {
           const {darkTheme, changeSidebarId} = value
 
+          const onRetry = () => {
+            this.getVideosDetails()
+          }
+
           const renderFailureView = () => (
-            <Failure onRetry={this.getVideosList} darkTheme={darkTheme} />
+            <Failure onRetry={onRetry} darkTheme={darkTheme} />
           )
 
           const renderLoaderView = () => (

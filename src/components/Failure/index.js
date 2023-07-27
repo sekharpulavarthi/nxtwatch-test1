@@ -25,9 +25,7 @@ const Failure = props => {
         Oops! Something Went Wrong
       </FailureHeading>
       <FailureDescription>
-        We are having some trouble to complete your request.
-        <br />
-        Please try again.
+        We are having some trouble to complete your request. Please try again.
       </FailureDescription>
       <RetryButton type="button" onClick={onClickRetry}>
         Retry

@@ -10,11 +10,6 @@ import {
 } from 'react-icons/ai'
 
 import {
-  FailureView,
-  FailureImg,
-  FailureHeading,
-  FailureDescription,
-  RetryButton,
   LoaderView,
   FullView,
   MainView,
@@ -40,6 +35,7 @@ import {
 import Sidebar from '../Sidebar'
 import Navbar from '../Navbar'
 import Context from '../../Context/Context'
+import Failure from '../Failure'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -134,28 +130,12 @@ class VideoItemDetails extends Component {
             addDislikeVideos(videoDetails)
           }
 
+          const onRetry = () => {
+            this.getVideosDetails()
+          }
+
           const renderFailureView = () => (
-            <FailureView>
-              <FailureImg
-                src={
-                  darkTheme
-                    ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
-                    : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
-                }
-                alt="failure view"
-              />
-              <FailureHeading color={darkTheme ? '#f9f9f9' : '#181818'}>
-                Oops! Something Went Wrong
-              </FailureHeading>
-              <FailureDescription>
-                We are having some trouble to complete your request.
-                <br />
-                Please try again.
-              </FailureDescription>
-              <RetryButton type="button" onClick={this.getVideosList}>
-                Retry
-              </RetryButton>
-            </FailureView>
+            <Failure onRetry={onRetry} darkTheme={darkTheme} />
           )
 
           const renderLoaderView = () => (

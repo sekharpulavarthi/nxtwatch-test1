@@ -70,7 +70,6 @@ export const VideosView = styled.div`
   height: 92vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   overflow: auto;
   background-color: ${props => props.backgroundColor};
   ::-webkit-scrollbar {
@@ -92,18 +91,19 @@ export const VideosView = styled.div`
 export const VideoPlayer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   font-family: 'Roboto';
   padding: 20px;
   width: 100%;
 `
 
 export const Player = styled.div`
-  width: 100%;
-  height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
+  aspect-ratio: 16/9;
+
+  @media screen and (max-width: 1300px) {
+  }
 `
 
 export const VideoTitle = styled.p`
