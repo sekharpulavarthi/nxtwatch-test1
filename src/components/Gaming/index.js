@@ -55,7 +55,6 @@ class Gaming extends Component {
 
     if (response.ok) {
       const data = await response.json()
-      console.log(data)
       const updatedData = data.videos.map(each => ({
         id: each.id,
         title: each.title,
@@ -138,6 +137,7 @@ class Gaming extends Component {
 
           return (
             <FullView
+              data-testid="gaming"
               onLoad={() => {
                 changeSidebarId('GAMING')
               }}

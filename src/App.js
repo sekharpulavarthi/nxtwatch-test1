@@ -96,7 +96,6 @@ class App extends Component {
       dislikedVideos,
       savedVideos,
     } = this.state
-    console.log(savedVideos)
 
     return (
       <Context.Provider

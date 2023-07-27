@@ -42,7 +42,7 @@ const Sidebar = () => (
 
       const renderSidebarList = () => (
         <SidebarList>
-          <Link style={{'text-decoration': 'none'}} to={items[0].path}>
+          <Link style={{textDecoration: 'none'}} to={items[0].path}>
             <SideBarItems
               hoverColor={darkTheme ? '#383838' : '#f1f1f1'}
               backgroundColor={
@@ -64,7 +64,7 @@ const Sidebar = () => (
               </SideText>
             </SideBarItems>
           </Link>
-          <Link style={{'text-decoration': 'none'}} to={items[1].path}>
+          <Link style={{textDecoration: 'none'}} to={items[1].path}>
             <SideBarItems
               hoverColor={darkTheme ? '#383838' : '#f1f1f1'}
               backgroundColor={
@@ -86,7 +86,7 @@ const Sidebar = () => (
               </SideText>
             </SideBarItems>
           </Link>
-          <Link style={{'text-decoration': 'none'}} to={items[2].path}>
+          <Link style={{textDecoration: 'none'}} to={items[2].path}>
             <SideBarItems
               hoverColor={darkTheme ? '#383838' : '#f1f1f1'}
               backgroundColor={
@@ -108,7 +108,7 @@ const Sidebar = () => (
               </SideText>
             </SideBarItems>
           </Link>
-          <Link style={{'text-decoration': 'none'}} to={items[3].path}>
+          <Link style={{textDecoration: 'none'}} to={items[3].path}>
             <SideBarItems
               hoverColor={darkTheme ? '#383838' : '#f1f1f1'}
               backgroundColor={

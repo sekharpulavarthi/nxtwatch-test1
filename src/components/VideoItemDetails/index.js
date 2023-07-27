@@ -232,6 +232,7 @@ class VideoItemDetails extends Component {
 
           return (
             <FullView
+              data-testid="videoItemDetails"
               onLoad={() => {
                 changeSidebarId('')
               }}

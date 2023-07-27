@@ -69,7 +69,7 @@ class Home extends Component {
 
     if (response.ok) {
       const data = await response.json()
-      console.log(data)
+
       const updatedData = data.videos.map(each => ({
         id: each.id,
         title: each.title,
@@ -114,7 +114,7 @@ class Home extends Component {
           const {darkTheme, changeSidebarId} = value
 
           const onRetry = () => {
-            this.getVideosDetails()
+            this.getVideosList()
           }
 
           const renderFailureView = () => (
@@ -134,8 +134,6 @@ class Home extends Component {
 
           const renderVideosView = () => {
             const showVideosList = videosList.length > 0
-
-            console.log(showVideosList)
 
             return showVideosList ? (
               <VideosList>

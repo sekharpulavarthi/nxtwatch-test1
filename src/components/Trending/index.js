@@ -140,6 +140,7 @@ class Trending extends Component {
 
           return (
             <FullView
+              data-testid="trending"
               onLoad={() => {
                 changeSidebarId('TRENDING')
               }}

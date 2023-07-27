@@ -15,7 +15,7 @@ const GamingVideos = props => {
 
   return (
     <Link
-      style={{textDecoration: 'none', 'margin-bottom': '20px'}}
+      style={{textDecoration: 'none', marginBottom: '20px'}}
       to={`/videos/${id}`}
     >
       <VideoCardView hoverColor={darkTheme ? '#383838' : '#e2e8f0'}>
