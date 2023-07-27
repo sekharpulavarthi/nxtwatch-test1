@@ -141,24 +141,18 @@ const Sidebar = () => (
               CONTACT US
             </Contact>
             <SocialMediaBox>
-              <a href="/#">
-                <SocialIcons
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
-                  alt="facebook logo"
-                />
-              </a>
-              <a href="/#">
-                <SocialIcons
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
-                  alt="twitter logo"
-                />
-              </a>
-              <a href="/#">
-                <SocialIcons
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
-                  alt="linked in logo"
-                />
-              </a>
+              <SocialIcons
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                alt="facebook logo"
+              />
+              <SocialIcons
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                alt="twitter logo"
+              />
+              <SocialIcons
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                alt="linked in logo"
+              />
             </SocialMediaBox>
             <ContactText color={darkTheme ? '#ffffff' : '#424242'}>
               Enjoy! Now to see your channels and recommendations!

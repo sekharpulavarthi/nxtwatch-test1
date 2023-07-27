@@ -80,7 +80,7 @@ class Gaming extends Component {
           const {darkTheme, changeSidebarId} = value
 
           const onRetry = () => {
-            this.getVideosDetails()
+            this.getVideosList()
           }
 
           const renderFailureView = () => (
