@@ -76,6 +76,7 @@ export const SocialIcons = styled.img`
 export const ContactText = styled.p`
   color: ${props => props.color};
   font-size: 18px;
+  margin-right: 10px;
   @media screen and (max-width: 1500px) {
     font-size: 1.5vw;
     padding-left: 8px;

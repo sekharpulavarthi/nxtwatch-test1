@@ -214,7 +214,7 @@ class Home extends Component {
                   data-testid="home"
                   backgroundColor={darkTheme ? '#181818' : '#f9f9f9'}
                 >
-                  {bannerView ? <>{renderBannerView()}</> : ''}
+                  {bannerView && <>{renderBannerView()}</>}
                   <SearchBox>
                     <SearchInput
                       type="search"
